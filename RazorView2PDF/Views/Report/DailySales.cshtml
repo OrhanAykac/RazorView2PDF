@@ -1,0 +1,50 @@
+﻿@using RazorView2PDF.Models
+@model List<DailySalesModel>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daily Sales Report</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Daily Sales Report</h2>
+    <table>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Amount</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.Quantity</td>
+                <td>@item.Price</td>
+                <td>@item.Total</td>
+            </tr>
+        }
+    </table>
+
+</body>
+</html>
+
